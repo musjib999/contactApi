@@ -1,0 +1,25 @@
+version : '3'
+
+services: 
+    
+    mydb:
+        image: mysql:5.7
+        ports: 
+           - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: "123456"
+            MYSQL_DATABASE: "contactDB"
+        networks:
+            - backnet
+    
+    # api:
+    #     image: musa/lexdocker:v100
+    #     restart: always
+    #     ports: 
+    #         - "3000:3000"
+    #     networks: 
+    #         - musanet
+
+networks:
+    backnet:
+        driver: bridge
